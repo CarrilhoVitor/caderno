@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="description" content="Seu bloco de notas pessoal, com salvamento automático.">
+    <title>Caderno — Bloco de notas</title>
+    <link rel="stylesheet" href="./styles.css?v=3">
+    <script src="./app.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <div class="brand"><span class="mark" data-icon="book"></span>Caderno</div>
+      <div class="header-actions">
+        <span id="save" class="save" role="status">Salvo neste navegador</span>
+        <button id="theme" class="icon theme-toggle" type="button" aria-label="Ativar modo escuro" title="Ativar modo escuro">
+          <span data-icon="moon"></span>
+          <span data-icon="sun"></span>
+        </button>
+      </div>
+    </header>
+
+    <main id="app">
+      <section class="notes-view" aria-label="Lista de notas">
+        <div class="side-head">
+          <div class="row">
+            <h1>Minhas notas</h1>
+            <button id="new" class="primary"><span data-icon="plus"></span>Nova nota</button>
+          </div>
+        </div>
+        <div id="list" class="list"></div>
+      </section>
+
+      <section class="panel" aria-label="Editor de notas">
+        <div id="toolbar" class="toolbar">
+          <button id="back" class="icon back" title="Voltar às notas" aria-label="Voltar às notas" data-icon="back"></button>
+          <span id="date" class="date"></span>
+          <div class="actions">
+            <button id="pin" class="icon" title="Fixar nota" aria-label="Fixar nota" aria-pressed="false" data-icon="pin"></button>
+            <button id="remove" class="icon" title="Excluir nota" aria-label="Excluir nota" data-icon="trash"></button>
+          </div>
+        </div>
+
+        <div id="editor" class="editor">
+          <input id="title" aria-label="Título da nota" placeholder="Título da nota">
+          <textarea id="body" aria-label="Conteúdo da nota" placeholder="Comece a escrever…"></textarea>
+        </div>
+
+        <div id="footer" class="footer"></div>
+        <p id="blank" class="blank" hidden>Escolha uma nota ou clique em Nova nota para escrever.</p>
+      </section>
+    </main>
+
+    <dialog id="confirm">
+      <h2>Excluir nota?</h2>
+      <p>A nota será apagada deste navegador.</p>
+      <form method="dialog">
+        <button value="cancel" autofocus>Cancelar</button>
+        <button class="danger" value="delete">Excluir</button>
+      </form>
+    </dialog>
+  </body>
+</html>
