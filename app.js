@@ -61,32 +61,7 @@ if (viewport) {
 }
 
 const key = 'caderno.notes.v1';
-const now = Date.now();
-const seed = [
-  {
-    id: 'welcome',
-    title: 'Boas-vindas ao Caderno',
-    body: 'Este é seu espaço para guardar ideias, listas e lembretes.\n\nUse Nova nota para começar a escrever. Você também pode editar esta nota ou fixar o que quiser manter no topo.\n\nSuas notas são salvas automaticamente neste navegador.',
-    pinned: true,
-    updated: now,
-  },
-  {
-    id: 'ideas',
-    title: 'Ideias para guardar',
-    body: 'Livros para ler\nLugares para conhecer\nProjetos para começar',
-    pinned: false,
-    updated: now - 1,
-  },
-  {
-    id: 'week',
-    title: 'Planejamento da semana',
-    body: 'Anote aqui suas prioridades e lembretes.',
-    pinned: false,
-    updated: now - 2,
-  },
-];
-
-let notes = seed;
+let notes = [];
 try {
   const saved = localStorage.getItem(key);
   if (saved) notes = JSON.parse(saved);
