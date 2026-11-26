@@ -44,6 +44,10 @@
 }
 
 body {
+  --new-note-gap: 16px;
+  --new-note-right: max(var(--new-note-gap), env(safe-area-inset-right));
+  --new-note-bottom: max(var(--new-note-gap), env(safe-area-inset-bottom));
+  --new-note-height: 44px;
   margin: 0;
 }
 
@@ -163,15 +167,12 @@ main.open .notes-view, main:not(.open) .panel {
   display: none;
 }
 
-.side-head {
-  padding: 0 0 14px;
+main:not(.open) {
+  padding-bottom: calc(var(--new-note-height) + var(--new-note-bottom) + var(--new-note-gap));
 }
 
-.row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 10px;
+.side-head {
+  padding: 0 0 14px;
 }
 
 h1 {
@@ -183,6 +184,12 @@ h1 {
 }
 
 .primary {
+  position: fixed;
+  right: var(--new-note-right);
+  bottom: calc(var(--viewport-bottom-offset, 0px) + var(--new-note-bottom));
+  z-index: 1;
+  min-height: var(--new-note-height);
+  box-shadow: 0 3px 12px var(--backdrop);
   white-space: nowrap;
   background: var(--accent);
   border: 0;
@@ -355,7 +362,8 @@ h1 {
 
 .footer {
   border-top: 1px solid var(--line);
-  padding: 13px 25px;
+  min-height: calc(var(--new-note-height) + var(--new-note-bottom) + var(--new-note-gap));
+  padding: 13px 160px 13px 25px;
   color: var(--muted);
   font-size: .82rem;
 }
@@ -458,11 +466,11 @@ dialog form {
     padding: 22px var(--gutter-right) var(--gutter-bottom) var(--gutter-left);
   }
 
-  .row h1 {
+  .side-head h1 {
     font-size: clamp(1.5rem, 7vw, 1.85rem);
   }
 
-  .primary, dialog button {
+  dialog button {
     min-height: 44px;
   }
 
@@ -530,7 +538,7 @@ dialog form {
 
   .footer {
     flex: none;
-    padding: 8px var(--gutter-right) var(--gutter-bottom) var(--gutter-left);
+    padding: 8px calc(var(--new-note-right) + 144px) var(--gutter-bottom) var(--gutter-left);
   }
 
   dialog {

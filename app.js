@@ -49,15 +49,23 @@ applyTheme();
 
 const viewport = window.visualViewport;
 if (viewport) {
-  function updateVisibleHeight() {
+  function updateViewport() {
+    const style = document.body.style;
     if (viewport.scale === 1) {
-      document.body.style.setProperty('--visible-height', viewport.height + 'px');
+      const bottomOffset = Math.max(
+        0, document.documentElement.clientHeight - viewport.height - viewport.offsetTop,
+      );
+      style.setProperty('--visible-height', viewport.height + 'px');
+      style.setProperty('--viewport-bottom-offset', bottomOffset + 'px');
     } else {
-      document.body.style.removeProperty('--visible-height');
+      style.removeProperty('--visible-height');
+      style.removeProperty('--viewport-bottom-offset');
     }
   }
-  viewport.addEventListener('resize', updateVisibleHeight);
-  updateVisibleHeight();
+  viewport.addEventListener('resize', updateViewport);
+  viewport.addEventListener('scroll', updateViewport);
+  window.addEventListener('resize', updateViewport);
+  updateViewport();
 }
 
 const key = 'caderno.notes.v1';

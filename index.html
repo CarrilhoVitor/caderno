@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <meta name="description" content="Seu bloco de notas pessoal, com salvamento automático.">
     <title>Caderno — Bloco de notas</title>
-    <link rel="stylesheet" href="./styles.css?v=3">
-    <script src="./app.js" defer></script>
+    <link rel="stylesheet" href="./styles.css?v=4">
+    <script src="./app.js?v=4" defer></script>
 
     <!-- teste de logo -->
     <link rel="manifest" href="/manifest.json">
@@ -33,10 +33,7 @@
     <main id="app">
       <section class="notes-view" aria-label="Lista de notas">
         <div class="side-head">
-          <div class="row">
-            <h1>Minhas notas</h1>
-            <button id="new" class="primary"><span data-icon="plus"></span>Nova nota</button>
-          </div>
+          <h1>Minhas notas</h1>
         </div>
         <div id="list" class="list"></div>
       </section>
@@ -59,6 +56,7 @@
         <div id="footer" class="footer"></div>
         <p id="blank" class="blank" hidden>Escolha uma nota ou clique em Nova nota para escrever.</p>
       </section>
+      <button id="new" class="primary" type="button"><span data-icon="plus"></span>Nova nota</button>
     </main>
 
     <dialog id="confirm">
