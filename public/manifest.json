@@ -1,0 +1,15 @@
+{
+  "name": "Caderno",
+  "short_name": "Caderno",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#272A33",
+  "theme_color": "#272A33",
+  "icons": [
+    {
+      "src": "logo.png",
+      "sizes": "1024x1024",
+      "type": "image/png"
+    }
+  ]
+}
