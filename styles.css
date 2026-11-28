@@ -163,7 +163,7 @@ main {
   overflow: hidden;
 }
 
-main.open .notes-view, main:not(.open) .panel {
+main.open .notes-view, main.open #new, main:not(.open) .panel {
   display: none;
 }
 
@@ -362,8 +362,7 @@ h1 {
 
 .footer {
   border-top: 1px solid var(--line);
-  min-height: calc(var(--new-note-height) + var(--new-note-bottom) + var(--new-note-gap));
-  padding: 13px 160px 13px 25px;
+  padding: 13px 25px;
   color: var(--muted);
   font-size: .82rem;
 }
@@ -538,7 +537,7 @@ dialog form {
 
   .footer {
     flex: none;
-    padding: 8px calc(var(--new-note-right) + 144px) var(--gutter-bottom) var(--gutter-left);
+    padding: 8px var(--gutter-right) var(--gutter-bottom) var(--gutter-left);
   }
 
   dialog {
